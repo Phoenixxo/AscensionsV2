@@ -1,0 +1,15 @@
+ascension:
+  requirements:
+    - type: rank
+      value: 26
+    - type: prestige
+      value: 50
+    - type: money
+      value: 1000000
+    - type: blocks
+      value: 100000
+
+  reset:
+    rank: true
+    prestige: true
+    balance: true

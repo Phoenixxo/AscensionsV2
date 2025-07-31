@@ -1,0 +1,14 @@
+ascension:
+  messages:
+    success: "<green>You have successfully ascended to level <gold><bold>%level%</bold></gold><green>!"
+    fail: "<red>You do not meet all the requirements to ascend."
+
+general:
+  no-permission: "<red>You do not have permission to use this command."
+  player-only: "<gray>Only players can use this command."
+  reload-complete: "<green><bold>Ascensions config and data reloaded!</bold></green>"
+  level-get: "<aqua>Your current ascension level is: <bold><gold>%level%</gold></bold></aqua>"
+  level-set: "<yellow>Set <gold><bold>%player%</bold></gold><yellow>'s level to <gold><bold>%level%</bold></gold>"
+  player-not-found: "<red>Player not found."
+  invalid-number: "<red>Invalid number. Please enter a valid integer."
+  usage: "<red>Usage: <gray>/ascensions [gui|reload|level]</gray>"

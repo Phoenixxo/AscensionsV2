@@ -1,0 +1,24 @@
+name: ascensionsV2
+version: '1.0'
+main: phoenixxo.ascensionsV2.AscensionsV2
+api-version: '1.20'
+load: STARTUP
+authors: [ Phoenixxo ]
+description: An ascenions plugin for XPrison.
+depend: [ X-Prison, PlaceholderAPI ]
+commands:
+  ascensions:
+    description: Root command for AscensionsV2 plugin.
+    usage: /ascensions <gui|reload|level>
+    permission: ascensionsv2.command
+permissions:
+  ascensionsv2.command:
+    default: true
+  ascensionsv2.ascend:
+    default: true
+  ascensionsv2.reload:
+    default: op
+  ascensionsv2.setlevel:
+    default: op
+
+
