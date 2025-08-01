@@ -1,0 +1,35 @@
+prefixes:
+  - min: 1
+    max: 4
+    name: "Asc"
+    open_style: "<gray><b>"
+    close_style: "</b></gray>"
+    show_roman: true
+
+  - min: 5
+    max: 9
+    name: "Celestial"
+    open_style: "<blue><b>"
+    close_style: "</b></blue>"
+    show_roman: true
+
+  - min: 10
+    max: 14
+    name: "Mythic"
+    open_style: "<gradient:#ff00ff:#8000ff><b>"
+    close_style: "</b></gradient>"
+    show_roman: true
+
+  - min: 15
+    max: 19
+    name: "Divine"
+    open_style: "<gradient:#ffaa00:#ff5555><b>"
+    close_style: "</b></gradient>"
+    show_roman: true
+
+  - min: 20
+    max: 999
+    name: "Ethereal [%ascensions_level%]"
+    open_style: "<gradient:#43e0fa:#0168fa><b><u>"
+    close_style: "</u></b></gradient>"
+    show_roman: false

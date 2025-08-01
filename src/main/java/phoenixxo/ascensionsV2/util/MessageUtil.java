@@ -1,9 +1,16 @@
 package phoenixxo.ascensionsV2.util;
 
+
+import me.clip.placeholderapi.PlaceholderAPI;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import phoenixxo.ascensionsV2.AscensionsV2;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MessageUtil {
 
@@ -32,6 +39,23 @@ public class MessageUtil {
             raw = raw.replace(replacements[i], replacements[i +1]);
         }
         return mm.deserialize(raw);
+    }
+
+    public static String expandAllPlaceholders (Player player, String text) {
+        if (!Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) return "";
+
+        Pattern pattern = Pattern.compile("%+[^%]+%");
+        Matcher matcher = pattern.matcher(text);
+        StringBuffer sb = new StringBuffer();
+
+        while (matcher.find()) {
+            String placeholder = matcher.group();
+            String replacement = PlaceholderAPI.setPlaceholders(player, placeholder);
+            matcher.appendReplacement(sb, Matcher.quoteReplacement(replacement));
+        }
+        matcher.appendTail(sb);
+
+        return sb.toString();
     }
 
 }

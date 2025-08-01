@@ -55,6 +55,7 @@ public class AscensionsCommand implements CommandExecutor {
             plugin.getAscensionManager().loadRequirements();
             plugin.getAscensionLevelManager().reload();
             plugin.getMessagesManager().reload();
+            plugin.getPrefixManager().reload(plugin);
 
             commandSender.sendMessage(MessageUtil.get("general.reload-complete"));
             return true;

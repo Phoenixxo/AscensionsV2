@@ -9,6 +9,7 @@ import phoenixxo.ascensionsV2.listeners.AscensionGUIListener;
 import phoenixxo.ascensionsV2.managers.AscensionLevelManager;
 import phoenixxo.ascensionsV2.managers.AscensionManager;
 import phoenixxo.ascensionsV2.managers.AscensionMessagesManager;
+import phoenixxo.ascensionsV2.managers.PrefixManager;
 import phoenixxo.ascensionsV2.menus.ascensionGUI;
 import phoenixxo.ascensionsV2.requirements.RequirementFactory;
 import phoenixxo.ascensionsV2.util.AscensionExpansion;
@@ -25,6 +26,7 @@ public final class AscensionsV2 extends JavaPlugin {
     private AscensionManager ascensionManager;
     private ascensionGUI ascensionGUI;
     private AscensionMessagesManager messagesManager;
+    private PrefixManager prefixManager;
 
     @Override
     public void onEnable() {
@@ -46,6 +48,7 @@ public final class AscensionsV2 extends JavaPlugin {
                     this.ascensionLevelManager = new AscensionLevelManager(this);
                     this.requirementFactory = new RequirementFactory(prisonAPI);
                     this.ascensionManager = new AscensionManager(this);
+                    this.prefixManager = new PrefixManager(this);
 
                     this.ascensionManager.loadRequirements();
 
@@ -109,5 +112,9 @@ public final class AscensionsV2 extends JavaPlugin {
 
     public AscensionMessagesManager getMessagesManager() {
         return this.messagesManager;
+    }
+
+    public PrefixManager getPrefixManager() {
+        return this.prefixManager;
     }
 }

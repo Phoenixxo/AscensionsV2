@@ -58,6 +58,10 @@ public class AscensionExpansion extends PlaceholderExpansion {
         });
         placeholders.put("ready", p -> plugin.getAscensionManager().canAscend(p) ? "Ready!" : "Not Ready");
         placeholders.put("status_colored", p -> plugin.getAscensionManager().canAscend(p) ? "&a✓" : "&c✗");
+        placeholders.put("prefix", p -> MiniMessage.miniMessage().serialize(
+                plugin.getPrefixManager().getPrefixComponent(p, plugin.getAscensionLevelManager().getAscensionLevel(p.getUniqueId())
+                )
+        ));
     }
 
     @Override
