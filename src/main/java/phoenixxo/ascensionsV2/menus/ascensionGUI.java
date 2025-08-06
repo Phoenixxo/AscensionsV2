@@ -1,5 +1,6 @@
 package phoenixxo.ascensionsV2.menus;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextColor;
@@ -14,6 +15,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import phoenixxo.ascensionsV2.AscensionsV2;
 import phoenixxo.ascensionsV2.requirements.AscensionRequirement;
 import phoenixxo.ascensionsV2.util.AscensionGUIHolder;
+import phoenixxo.ascensionsV2.util.MessageUtil;
 
 
 import java.util.*;
@@ -63,25 +65,23 @@ public class ascensionGUI {
         ItemMeta meta = item.getItemMeta();
 
         if (meta != null) {
-            // Display name
-            Component title = Component.text((allMet ? "✓ " : "✗ ") + "Ascension Ready")
-                    .color(color)
-                    .decoration(TextDecoration.BOLD, true);
+            // Display Name
+            String prefix = allMet ? "<green>✓ " : "<red>✗ ";
+            Component title = MiniMessage.miniMessage().deserialize(prefix + "<bold> Ascension Ready </bold>");
             meta.displayName(title);
 
             // Lore lines
             List<Component> lore = new ArrayList<>();
             lore.add(Component.text("--------------------", NamedTextColor.GRAY));
 
-            for (AscensionRequirement requirement : plugin.getAscensionManager().getRequirements()) {
-                boolean met = requirement.isMet(player);
-                TextColor lineColor = met ? NamedTextColor.GREEN : NamedTextColor.RED;
+            plugin.getAscensionManager().getRequirements().forEach(ascensionRequirement -> {
+                boolean met = ascensionRequirement.isMet(player);
+                String check = met ? "<green>✓ " : "<red>✗ ";
+                Component checkComponent = MiniMessage.miniMessage().deserialize(check);
 
-                Component line = Component.text(met ? "✓ " : "✗ ", lineColor)
-                        .append(requirement.getDisplay(player).colorIfAbsent(lineColor));
-
+                Component line = checkComponent.append(ascensionRequirement.getDisplay(player));
                 lore.add(line);
-            }
+            });
 
             meta.lore(lore);
             item.setItemMeta(meta);

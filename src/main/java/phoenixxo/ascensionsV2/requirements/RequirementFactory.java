@@ -15,10 +15,9 @@ public class RequirementFactory {
     public RequirementFactory(XPrisonAPI api) {
         this.api = api;
         this.registered = new HashMap<>();
-
         register("rank", RankRequirement::new);
         register("prestige", PrestigeRequirement::new);
-        register("money", MoneyRequirement::new);
+        register("cost", CostRequirement::new);
     }
 
     public void register(String key, BiFunction<String, XPrisonAPI, AscensionRequirement> constructor) {

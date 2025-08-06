@@ -32,8 +32,9 @@ public class AscensionManager {
 
         for (Map<?, ?> entry : reqs) {
             String type = String.valueOf(entry.get("type"));
+            boolean enabled = !entry.containsKey("enabled") || Boolean.parseBoolean(String.valueOf(entry.get("enabled")));
+            if (!enabled) continue;
             String value = String.valueOf(entry.get("value"));
-
             AscensionRequirement req = requirementFactory.create(type, value);
             if (req != null) {
                 requirements.add(req);

@@ -5,5 +5,6 @@ import org.bukkit.entity.Player;
 
 public interface AscensionRequirement {
     boolean isMet(Player player);
-    Component getDisplay (Player player);
+    Component getDisplay(Player player);
+
 }

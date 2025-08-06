@@ -1,15 +1,12 @@
 ascension:
+  base_cost: 1000000        # Cost for first ascension
+  cost_growth: 1.15         # Exponential growth factor
   requirements:
-    - type: rank
-      value: 26
-    - type: prestige
-      value: 50
-    - type: money
-      value: 1000000
-    - type: blocks
-      value: 100000
-
-  reset:
-    rank: true
-    prestige: true
-    balance: true
+    - type: "rank"
+      enabled: true
+      value: 26 # rank ID, not prefix
+    - type: "prestige"
+      enabled: true
+      value: 5 # prestige ID, not prefix
+    - type: "cost"
+      enabled: true

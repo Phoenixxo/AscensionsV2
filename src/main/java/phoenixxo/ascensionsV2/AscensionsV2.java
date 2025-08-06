@@ -17,7 +17,9 @@ import phoenixxo.ascensionsV2.util.MessageUtil;
 import phoenixxo.ascensionsV2.util.PluginLogger;
 
 
-public final class AscensionsV2 extends JavaPlugin {
+public class AscensionsV2 extends JavaPlugin {
+    private static AscensionsV2 instance;
+
     private PluginLogger logger;
 
     private XPrisonAPI prisonAPI;
@@ -32,6 +34,8 @@ public final class AscensionsV2 extends JavaPlugin {
     public void onEnable() {
 
         saveDefaultConfig();
+
+        instance = this;
 
         this.logger = new PluginLogger(this);
         this.messagesManager = new AscensionMessagesManager(this);
@@ -86,6 +90,10 @@ public final class AscensionsV2 extends JavaPlugin {
         logger.info("Shutting down.");
     }
 
+    public static AscensionsV2 getInstance() {
+        return instance;
+    }
+
     public XPrisonAPI getPrisonAPI() {
         return this.prisonAPI;
     }
@@ -117,4 +125,5 @@ public final class AscensionsV2 extends JavaPlugin {
     public PrefixManager getPrefixManager() {
         return this.prefixManager;
     }
+
 }
