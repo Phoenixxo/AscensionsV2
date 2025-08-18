@@ -1,0 +1,111 @@
+config-version: 1 # do not change
+perks:
+  points_per_rebirth: 1
+  strict_graph_validation: true
+  perks_config:
+    # Node IDs must be unique
+    mining_speed:
+      name: "Mining Speed"
+      icon: "GOLDEN_PICKAXE"
+      slot: 11            # GUI slot (0-53)
+      max_rank: 5
+      cost_per_rank: 1
+      category: "mining"
+      # bonus scales by rank
+      bonus:
+        type: "percentage"        # percentage | multiplier | flat
+        base: 5.0                 # rank 1 starts at 5%
+        per_rank: 5.0             # +5% each rank -> 25% at rank 5
+        max: 100.0
+      requires: []                # root node
+      neighbors: ["fortune_yield"]# visually adjacent (optional)
+
+    fortune_yield:
+      name: "Fortune Yield"
+      icon: "EMERALD"
+      slot: 20
+      max_rank: 3
+      cost_per_rank: 1
+      category: "mining"
+      bonus:
+        type: "percentage"
+        base: 10.0
+        per_rank: 10.0
+        max: 50.0
+      requires: ["mining_speed"]  # edge: mining_speed -> fortune_yield
+      neighbors: ["mining_speed", "autosell"]
+
+    autosell:
+      name: "Auto-Sell Chance"
+      icon: "HOPPER"
+      slot: 29
+      max_rank: 3
+      cost_per_rank: 2
+      category: "economy"
+      bonus:
+        type: "percentage"
+        base: 5.0
+        per_rank: 5.0
+        max: 50.0
+      requires: ["fortune_yield"]
+      neighbors: ["fortune_yield", "sell_multiplier"]
+
+    sell_multiplier:
+      name: "Sell Multiplier"
+      icon: "GOLD_INGOT"
+      slot: 31
+      max_rank: 4
+      cost_per_rank: 1
+      category: "economy"
+      bonus:
+        type: "multiplier" # shown as 1.0x + 0.1x * rank (example)
+        base: 1.0
+        per_rank: 0.1
+        max: 5.0
+      requires: ["autosell"]
+      neighbors: ["autosell"]
+
+    token_gain:
+      name: "Token Gain"
+      icon: "SUNFLOWER"
+      slot: 13
+      max_rank: 3
+      cost_per_rank: 1
+      category: "economy"
+      bonus:
+        type: "percentage"
+        base: 5.0
+        per_rank: 5.0
+        max: 100.0
+      requires: []         # separate root path
+      neighbors: ["crate_key"]
+
+    crate_key:
+      name: "Crate Key Drop Rate"
+      icon: "TRIPWIRE_HOOK"
+      slot: 22
+      max_rank: 2
+      cost_per_rank: 2
+      category: "drops"
+      bonus:
+        type: "percentage"
+        base: 2.0
+        per_rank: 3.0
+        max: 25.0
+      requires: ["token_gain"]
+      neighbors: ["token_gain"]
+
+perks_gui:
+  title: "<gold>Rebirth Perks</gold>  <gray>(Points: <yellow>%points%</yellow>)</gray>"
+  rows: 6
+
+  filler:
+    enabled: true
+    material: "BLACK_STAINED_GLASS_PANE"
+    name: " "
+
+  connectors:
+    enabled: false  # set true if you want manual connector slots
+    material: "LIGHT_GRAY_STAINED_GLASS_PANE"
+    name: " "
+    slots: [ 10, 19, 28, 37 ]

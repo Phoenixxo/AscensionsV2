@@ -1,24 +1,23 @@
-name: ascensionsV2
+name: BetterRebirth
 version: '1.0.2'
-main: phoenixxo.ascensionsV2.AscensionsV2
+main: dev.phoenixxo.BetterRebirth
 api-version: '1.20'
 load: STARTUP
 authors: [ Phoenixxo ]
-description: An ascenions plugin for XPrison.
+description: An better rebirth plugin for XPrison.
 depend: [ X-Prison, PlaceholderAPI ]
 commands:
-  ascensions:
-    description: Root command for AscensionsV2 plugin.
-    usage: /ascensions <gui|reload|level>
-    permission: ascensionsv2.command
+  rebirth:
+    description: Root command for Better Rebirth plugin.
+    usage: /rebirth <gui|reload|level>
+    permission: better-rebirth.command
 permissions:
-  ascensionsv2.command:
+  better-rebirth.command:
     default: true
-  ascensionsv2.ascend:
+  better-rebirth.ascend:
     default: true
-  ascensionsv2.reload:
+  better-rebirth.reload:
     default: op
-  ascensionsv2.setlevel:
+  better-rebirth.setlevel:
     default: op
-
 

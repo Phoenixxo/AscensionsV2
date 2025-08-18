@@ -1,5 +1,7 @@
-ascension:
-  base_cost: 1000000        # Cost for first ascension
+rebirth:
+  points-per-rebirth: 1
+  auto-open-skill-tree: true
+  base_cost: 1000000        # Cost for first rebirth
   cost_growth: 1.15         # Exponential growth factor
   requirements:
     - type: "rank"

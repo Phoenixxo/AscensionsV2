@@ -1,14 +1,47 @@
-ascension:
+config-version: 1 # do not change
+betterRebirth:
   messages:
-    success: "<green>You have successfully ascended to level <gold><bold>%level%</bold></gold><green>!"
-    fail: "<red>You do not meet all the requirements to ascend."
+    success: "<green>You have successfully reborn to level <gold><bold>%level%</bold></gold><green>!"
+    fail: "<red>You do not meet all the requirements to rebirth."
 
 general:
   no-permission: "<red>You do not have permission to use this command."
   player-only: "<gray>Only players can use this command."
-  reload-complete: "<green><bold>Ascensions config and data reloaded!</bold></green>"
-  level-get: "<aqua>Your current ascension level is: <bold><gold>%level%</gold></bold></aqua>"
+  reload-complete: "<green><bold>BetterRebirth config and data reloaded!</bold></green>"
+  level-get: "<aqua>Your current rebirth level is: <bold><gold>%level%</gold></bold></aqua>"
   level-set: "<yellow>Set <gold><bold>%player%</bold></gold><yellow>'s level to <gold><bold>%level%</bold></gold>"
   player-not-found: "<red>Player not found."
   invalid-number: "<red>Invalid number. Please enter a valid integer."
-  usage: "<red>Usage: <gray>/ascensions [gui|reload|level]</gray>"
+  usage: "<red>Usage: <gray>/rebirth [gui|reload|level]</gray>"
+
+gui:
+  title: "<gold>Rebirth Perks</gold> <gray>(Points: <yellow>%points%</yellow>)</gray>"
+  filler_name: " "
+  connectors_name: " "
+
+  points: "<gray>Points:</gray> <yellow>%points%</yellow>"
+  cost_per_rank: "<gray>Cost per rank:</gray> <gold>%cost%</gold>"
+  value_now: "<gray>Value now:</gray> %value%"
+  value_next: "<gray>Value next:</gray> %value%"
+
+  requires_header: "<gray>Requires:</gray> %list%"
+  requires_item_ok: "<green>✓</green> <white>%id%</white>"
+  requires_item_missing: "<red>✗</red> <white>%id%</white>"
+
+  unlocked_click_to_rankup: "<yellow>Click to rank up</yellow>"
+  unlocked_max: "<green>Unlocked (Max)</green>"
+  available_click: "<yellow>Click to unlock</yellow>"
+  locked: "<red>Locked</red>"
+
+messages:
+  upgraded: "<green>Upgraded:</green> <yellow>%id%</yellow>"
+  unknown_node: "<red>Unknown node.</red>"
+  already_max: "<yellow>Already at max rank.</yellow>"
+  missing_requirements: "<red>Requirements not met.</red>"
+  not_enough_points: "<red>Not enough points.</red>"
+  cannot_upgrade: "<red>Cannot upgrade right now.</red>"
+
+format:
+  percentage: "<green>+%amount%%</green>"
+  multiplier: "<green>%amount%x</green>"
+  flat: "<green>%amount%</green>"
