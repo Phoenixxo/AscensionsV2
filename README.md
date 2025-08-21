@@ -72,11 +72,10 @@ If PlaceholderAPI is installed, the following placeholders are available:
 - [x] Reload support
 
 ### Planned Expansions
-- [ ] Stat boosts and passive upgrades 
-- [ ] Perk tree (active/passive abilities) 
+- [ ] ⏳ Perk tree (active/passive abilities) 
 - [ ] Rebirth Contracts (quests/missions)
 - [ ] Custom enchantments system
-- [ ] Unlockable zones tied to ascension
+- [ ] Unlockable zones tied to rebirth
 - [ ] Cosmetics, titles, glow effects
 - [ ] Optional MySQL support
 
