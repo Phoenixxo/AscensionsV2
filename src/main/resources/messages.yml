@@ -1,5 +1,5 @@
 config-version: 1 # do not change
-betterRebirth:
+rebirth:
   messages:
     success: "<green>You have successfully reborn to level <gold><bold>%level%</bold></gold><green>!"
     fail: "<red>You do not meet all the requirements to rebirth."

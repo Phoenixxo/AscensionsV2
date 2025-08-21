@@ -95,17 +95,17 @@ perks:
       requires: ["token_gain"]
       neighbors: ["token_gain"]
 
-perks_gui:
-  title: "<gold>Rebirth Perks</gold>  <gray>(Points: <yellow>%points%</yellow>)</gray>"
-  rows: 6
+  perks_gui:
+    title: "<gold>Rebirth Perks</gold>  <gray>(Points: <yellow>%points%</yellow>)</gray>"
+    rows: 6
 
-  filler:
-    enabled: true
-    material: "BLACK_STAINED_GLASS_PANE"
-    name: " "
+    filler:
+      enabled: true
+      material: "BLACK_STAINED_GLASS_PANE"
+      name: " "
 
-  connectors:
-    enabled: false  # set true if you want manual connector slots
-    material: "LIGHT_GRAY_STAINED_GLASS_PANE"
-    name: " "
-    slots: [ 10, 19, 28, 37 ]
+    connectors:
+      enabled: false  # set true if you want manual connector slots
+      material: "LIGHT_GRAY_STAINED_GLASS_PANE"
+      name: " "
+      slots: [ 10, 19, 28, 37 ]
